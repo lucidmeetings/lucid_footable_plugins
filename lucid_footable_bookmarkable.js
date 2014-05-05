@@ -94,8 +94,9 @@
                          $(ft.table).trigger('footable_filter', {filter: q_filter});
                      }
                      if (q_page_num) {
-                         ft.pageInfo.currentPage = q_page_num;
-                         // no need to trigger here, because the sort will trigger it.
+                         $(ft.table).data('currentPage',  q_page_num);
+                         // we'll check for sort before triggering pagination, since
+                         // sorting triggers pagination. 
                      }
                      if (typeof q_sorted !== 'undefined') {
                          var footableSort = $(ft.table).data('footable-sort');
